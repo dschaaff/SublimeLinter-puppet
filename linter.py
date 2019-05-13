@@ -19,5 +19,5 @@ class Puppet(Linter):
 
     syntax = 'puppet'
     cmd = ('puppet', 'parser', 'validate', '--color=false')
-    regex = r'^Error:.+?(?P<message>Syntax error at \'(?P<near>.+?)\'?(?P<line>\d+):?(?P<col>\d+))'
+    regex = r'^Error:.+?(?P<message>Syntax error at \'(?P<near>.*?)\' \(line: (?P<line>\d+), column: (?P<col>\d+)\))'
     error_stream = util.STREAM_STDERR

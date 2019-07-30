@@ -17,7 +17,9 @@ class Puppet(Linter):
 
     """Provides an interface to puppet."""
 
-    syntax = 'puppet'
+    defaults = {
+        'selector': 'source.puppet'
+    }
     cmd = ('puppet', 'parser', 'validate', '--color=false')
     regex = r'^Error:.+?(?P<message>Syntax error at \'(?P<near>.+?)\'?(?P<line>\d+):?(?P<col>\d+))'
     error_stream = util.STREAM_STDERR
